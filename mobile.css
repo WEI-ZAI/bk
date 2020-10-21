@@ -1,0 +1,17 @@
+body{
+    background: url(https://s1.ax1x.com/2020/10/18/0jZRzT.jpg) no-repeat;
+    background-size:100% 21%;
+
+}
+.nav{
+    width: 90%;
+}
+.nav-p li{
+    font-size: 15px;
+    margin-left: 11px;
+}
+.logo img{
+    width: 60px;
+    height: 70px;
+margin-top: 10px;
+}

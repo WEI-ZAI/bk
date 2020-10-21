@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小阿伟的个人博客</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <link media="screen and (max-width: 780px)" rel="stylesheet" href="mobile.css">
+    <link rel="shortcut icon" href="https://img.rruu.net/image/5f8935117100e" type="image/x-icon">
+
+<body>
+    <div class="box">
+        <nav>
+            <div class="nav">
+                <div class="logo"><img src="https://s1.ax1x.com/2020/10/16/0HA7sP.png"></div>
+                <div class="nav-p">
+                    <ul>
+                        <li> <a href=""> 首页</a></li>
+                        <li> <a href=""> 关于我</a></li>
+                        <li> <a href=""> 我的作品</a></li>
+                        <li> <a href=""> 联系我</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="main-a">
+            <div id="sj"></div>
+            <p id="p">心怀浪漫宇宙也珍惜人间日常</p>
+        </div>
+        <div class="main-b">
+            <div class="main-b-p">
+                <p>我是阿伟</p>
+                <p>这里是我的个人资料</p>
+            </div>
+            <div class="main-b-nr">
+                <img src="https://s1.ax1x.com/2020/10/19/0vUDtx.jpg" alt="">
+                <ul>
+                    <li><span>姓名</span>：代伟平</li>
+                    <li><span>学校</span>：泸溪第一职业中学</li>
+                    <li><span>爱好</span>：前端开发，但是头发多的一批</li>
+
+                    <li>我在未来等你，现在即使未来</li>
+                </ul>
+            </div>
+            <!-- <div class="jn">
+                <dl>
+                    <dt><img src="https://s1.ax1x.com/2020/10/20/0zTGod.png" alt=""></dt>
+                    <dd id="ps">0%</dd>
+                </dl>
+                <dl>
+                    <dt><img src="https://s1.ax1x.com/2020/10/20/0zTtJI.png" alt=""></dt>
+                    <dd id="ai">0%</dd>
+                </dl>
+                <dl>
+                    <dt><img src="https://s1.ax1x.com/2020/10/20/0zTNWt.png" alt=""></dt>
+                    <dd id="pr">0%</dd>
+                </dl>
+                <dl>
+                    <dt><img src="https://s1.ax1x.com/2020/10/20/0zTYFA.png" alt=""></dt>
+                    <dd id="vs">0%</dd>
+                </dl>
+            </div> -->
+        </div>
+        <div class="footer">
+            <div class="main-c"></div>
+            <div class="bj">
+                <div class="nr">
+                    <div class="ly">
+                        <input type="text" placeholder="&nbsp;&nbsp;虽然我很喜欢她，但是我始终都不想让她知道，因为我知道，得不到的东西才是最好的。"></input><a
+                            href="tencent://Message/?Uin=2311481035">发送</a>
+                        <ul>
+                            <li>电话：13141630176</li>
+                            <li>QQ：2311481035</li>
+                            <li>WX：13141630176</li>
+                        </ul>
+                        <ul class="yx">
+                            <li>Steam：鹤立鸡群</li>
+                            <li>Epic：湖南许灵均</li>
+                            <li>R星：NIANSHI</li>
+                        </ul>
+                    </div>
+                    <div class="ewm">
+                        <dl>
+                            <dt>QQ</dt>
+                            <dd><img src="https://s1.ax1x.com/2020/10/20/BSoy1P.png"></dd>
+                        </dl>
+                        <dl>
+                            <dt>微信</dt>
+                            <dd><img src="https://s1.ax1x.com/2020/10/20/BSo66f.png"></dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+    window.onload = function () {
+        $("nav").css("left", "0");
+        $(".footer").css("left", "0");
+    }
+
+    //获取时间代码
+    function showTime() {
+        var curTime = new Date();
+        $("#sj").html(curTime.toLocaleString());
+        setTimeout("showTime()", 1000);
+    }
+    $(function () {
+        showTime()
+    })
+    //获取文字
+    $.ajax({
+        type: "GET",
+        url: "https://api.uixsj.cn/hitokoto/get",
+        success: function (data) {
+            $("#p").html(data);
+        }
+    })
+
+    $(window).scroll(function () {
+        var $scr = $(window).scrollTop();
+        console.log($scr);
+        if ($scr >= 965) {
+            $("body").css("backgroundImage", "url(https://s1.ax1x.com/2020/10/20/Bpasi9.jpg)");
+        } else {
+            $("body").css("backgroundImage", "url(https://s1.ax1x.com/2020/10/18/0jZRzT.jpg)");
+        }
+        //更改百分比
+        if ($scr >= 870) {
+            timer = setInterval(numadd, 25);
+        }
+    })
+
+    var timer;
+    var ps = 0;
+    var ai = 0;
+    var pr = 0;
+    var vs = 0;
+    var numadd = function () {
+        if (ps < 95) {
+            ps = ps + 1;
+        }
+        if (ai < 90) {
+            ai = ai + 1;
+            clearInterval(timer);
+            console.log();
+        }
+        if (pr < 85) {
+            pr = pr + 1;
+        }
+        if (vs < 89) {
+            vs = vs + 1;
+        }
+        $("#ps").html(ps + "%");
+        $("#ai").html(ai + "%");
+        $("#pr").html(pr + "%");
+        $("#vs").html(vs + "%");
+    }
+      
+
+
+</script>
+
+</html>
